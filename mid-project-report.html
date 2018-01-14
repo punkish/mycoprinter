@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MycoPrinter: Mid-Project Report</title>
+    <meta name="description" content="MycoPrinter, a bioprinter">
+    <meta name="author" content="Puneet Kishor">
+    <meta name="license" content="CC0 Public Domain Dedication">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/mycoprinter.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <nav class="top">
+        <div class="container">
+            <a href="index.html" style="text-decoration: none;"><b>MP</b></a>
+            <a class="n" href="#introduction">Introduction</a>
+            <a class="n" href="#bioprinters">Bioprinters</a>
+            <a class="n" href="#substrates">Substrates</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row" style="margin-top: 70px">
+            <div class="twelve columns">
+                <h4 id="introduction">Introduction</h4>
+
+                <p>The proposed printer, aka MycoPrinter, combines fused additive manufacturing (FDM) with plant biological tissue to create living organisms sculpted into artistic shapes. As such, it brings together engineering, biological sciences, and art together under the umbrella of open citizen science. The printer would allow printing relatively fine details that otherwise would be difficult to sculpt using regular mycelium growing techniques of mold making. Any artist wanting to work with mycelium should be able to use the MycoPrinter. In the following sections we discuss the preliminary research we have been doing on bioprinters and substrates.</p>
+
+                <h4 id="bioprinters">Bioprinters</h4>
+
+                <h5>Basic concepts of 3D printing</h5>
+
+                <p>A 2D inkjet printer moves a printhead in the x,y directions. The print head lays down the printing material, usually ink of some sort, on a 2D surface.</p>
+                <p>A 3D printer moves a print head, typically an extruder, in the  x,y,z directions. The extruder lays down some kind of plastic material by melting it and extruding it on a heated surface. By adding layers of material, a 3D object is printed.</p>
+                <p>The 3D object is designed in a CAD program such as OpenSCAD. The CAD program can then export STL files that are read by a Slicer program. The Slicer literally slices the 3D model into layers and then prepares G-Code that can be read by a firmware. Marlin is the most popular firmware at the heart of most open source 3D printers. The typical workflow for creating and printing a 3D object is as follows:</p>
+                <ul>
+                    <li>3D model made in a CAD program such as OpenSCAD</li>
+                    <li>Conversion to G-code using a Slicer program such as Cura</li>
+                    <li>The G-code interpreted by open firmware such as Marlin</li>
+                    <li>Printed on a 3D printer such as Prusa i3 Mk2 clone</li>
+                </ul>
+                <p>If the printhead (the extruder) is replaced with a mechanism that pushes out a biological substrate, we get a bioprinter. Such mechanism is typically a syringe pump, literally a large capacity syringe whose plunger is pushed by a motor. The following sections go into more detail with various approaches and experiments undertaken by the open bioprinting community.</p>
+
+                <h5>Research</h5>
+                
+                <p>We studied a number of existing projects that have attempted to make a bioprinter with varying degrees of success. Most of our research was conducted online as actual working instances of bioprinters are still relatively rare compared to normal 3D printers that are becoming fairly commonplace.</p>
+
+                <h5>Findings</h5>
+
+                <p>Early experiments in open source bioprinting started with 2D printers, either modifying existing inkjet printers or creating an  x,y mechanism using parts scavenged from old CD ROM drives. There are, however, several issues with such an approach that create a problem for bioprinting. Most inkjet heads have a very fine resolution, too fine for the much coarser biological substrate that one might want to print with a bioprinter. Of course, the more obvious problem is that the printed objects can only be on a 2D plane.</p>
+
+                <p>Another route for creating a bioprinter is to convert an existing CNC machine. Fitting a CNC machine with a syringe pump can result in a viable “plotter” with biological substrate. However, a problem with this approach is similar to that of converting an inkjet printer in that it is limited to 2D printing. Additionally, this is a relatively expensive route because CNC machines are expensive to begin with.</p>
+
+                <p>Taking the approach of converting a non-3D printer to do 3D printing also involves dealing with the software to drive the stepper motor that powers the extruder. This increases the complexity and cost of this route.</p>
+
+                <h5>Conclusion</h5>
+
+                <p>Instead of dealing with the problems associated with 2D printers, it makes more sense to start with a DIY 3D printer kit and modify its print head to extrude biological substrate. Since the 3D printer already comes with all the functionality listed in #1-4 above (see Basic concepts of 3D printing), most of the attention can be devoted to the substrate and the extruder. A well-regarded ready-to-assemble 3D printer kit such as the Tevo Tarantula based on the open source RepRap project can be combined with a multi-substrate paste extruder, or better yet, an open source syringe pump design to create a basic 3D bioprinter.</p>
+
+                <h5>References</h5>
+                
+                <p>See the Appendix for a list of existing projects that were researched.</p>
+
+                <h4 id="substrates">Substrates</h4>
+
+                <p>This report describes the research on various substrates for cultivating fungus species Grey Oyster Mushroom (<i>Pleurotus ostreatus</i>), suitable for use in a bioprinter. The research was conducted starting October 10th and ending January 9th for the first stage of the project. Please refer to the table below for the results of first experiments with the various substrates.</p>
+
+                <h5>Basic concepts of substrates</h5>
+
+                <p>Per the Merriam-Webster dictionary, a substrate is a base on or in which other organisms can live. In the world of mushrooms, a substrate is any substance on which mycelium will grow. Mycelium is the vegetative part of a fungus or fungus-like bacterial colony, consisting of a mass of branching, thread-like hyphae. … Through the mycelium, a fungus absorbs nutrients from its environment.</p>
+
+                <p>Many different materials may be considered a substrate, from breadcrumbs to coffee grounds to straw. For bioprinting, we need to evaluate the suitability of various substrates not just for how well mycelium grows on them but also for their structural properties. The substrate has to be able to hold up in the form of the 3D object printed with the bioprinter.</p>
+
+                <p>In the next sections we describe the result of our ongoing experiments with various substrates for growing the oyster mushroom.</p>
+
+                <h5>Research</h5>
+                
+                <ul>
+                    <li>Fungi species: Pleurotus (oyster mushroom)</li>
+                    <li>Temperature of incubator : 28ºC </li>
+                </ul>
+                
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>Substrate</th>
+                            <th>Med grade agar</th>
+                            <th>Tapioca</th>
+                            <th>Coffee grounds</th>
+                            <th>Breadcrumbs</th>
+                            <th>Brown rice flour</th>
+                            <th>Pine saw dust</th>
+                            <th>Viscosity</th>
+                            <th>Growth</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Med grade agar</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Very good 10/10/17</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>3-7 days</td>
+                        </tr>
+                        <tr>
+                            <th>Tapioca</th>
+                            <td></td>
+                            <td>Good 12/20/17</td>
+                            <td>Inconclusive 12/20/17</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>?</td>
+                        </tr>
+                        <tr>
+                            <th>Coffee grounds</th>
+                            <td></td>
+                            <td></td>
+                            <td>Very good 12/20/17</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>10-20 days</td>
+                        </tr>
+                        <tr>
+                            <th>Breadcrumbs</th>
+                            <td>Very good 12/20/17</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>3-7 days</td>
+                        </tr>
+                        <tr>
+                            <th>Brown rice flour</th>
+                            <td>01/09/18</td>
+                            <td></td>
+                            <td>01/09/18</td>
+                            <td>01/09/18</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Pine saw dust</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <i><b>Note:</b> All substrates use distilled water which is essential for mycelium growth.</i>
+                <br><br>
+
+                <h5>Findings</h5>
+
+                <p><b>Breadcrumbs and medical grade agar:</b> This combination resulted in a very rapid growth, with the mycelium completely taking over the substrate within seven days in the incubator. For printing purposes, however, the breadcrumbs and agar substrate might be too liquid to maintain sculptural shape. We need to add a thickening agent to make it more viscous and stable. More experiments will be done with coffee grounds and brown rice flour.</p>
+
+                <p><b>Coffee grounds:</b> Great growth but it needs more time to overtake the substrate (10-20 days) that might be a little too long for the limited time of the residency. Thus the next stage of  experiment is to combine coffee grounds with substrate A (breadcrumbs and agar) to explore whether that combination will create optimal growth/time ratio. We are looking for an ideal seven days for complete takeover of the sculptural substrate. These results will be ready within next two weeks. Plus, Subtrate A could be potentially more stable for maintaining its shape.
+                <br>
+                <i>Next step: Brown Rice Flour + Agar + Coffee (Subtrate B) - waiting for results within next 2 weeks.</i>
+                </p>
+
+                <figure>
+                    <img class="u-max-full-width" src="images/coffee-grounds.jpg">
+                    <figcaption>Coffee grounds: good growth</figcaption>
+                </figure>
+                
+                <p><b>Tapioca:</b> So far mycelium demonstrated some growth but looked like it struggled. On the other hand,  tapioca possesses great qualities of strong silicone like material which could provide necessary stability for 3D printing.
+                <br>
+                <i>Next step: Waiting for more results from combining tapioca + Substrate A or B (Substrate C).</i>
+                </p>
+
+                <figure>
+                    <img class="u-max-full-width" src="images/tapioca.jpg">
+                    <figcaption>Tapioca: inconclusive; mycelium grew on the thin layer of tapioca on the side of the jar</figcaption>
+                </figure>
+                
+                <p><b>Brown rice flour:</b> Brown rice flour mixed with distilled water demonstrates a great gel like quality and is able to maintain its shape to certain extent (please see video 1 for reference)</p>
+
+                <figure>
+                    <img class="u-max-full-width" src="images/brown-rice-flour.jpg">
+                    <figcaption>Brown rice flour: work in progress</figcaption>
+                </figure>
+
+                <figure>
+                    <img class="u-max-full-width" src="images/syringe-pump-breadcrumbs.gif">
+                    <figcaption>Brown rice flour: being extruded from a syringe</figcaption>
+                </figure>
+            
+                <h5>Conclusion</h5>
+                
+                <p>The point of this research is to find an optimal substrate that will provide necessary nutrients for rapid mycelium growth and demonstrate strong gel like qualities to maintain the shape of the 3D printed sculpture. So far the results are  very optimistic and I think through specific combinations of A, B and C we will be able to find our “golden ratio” before the beginning of the residency at Khoj.</p>
+
+                <h5>References</h5>
+
+                <ul>
+                    <li><a href="http://www.sciencedirect.com/science/article/pii/S0269749117300295?via%3Dihub" target="_blank">Biodegradation of polyester polyurethane by Aspergillus tubingensis.</a></li>
+                </ul>
+
+                <h4 id="appendix">Appendix</h4>
+
+                <h5><a href="http://www.instructables.com/id/DIY-BioPrinter/" target="_blank">DIY Bioprinter</a></h5>
+
+                <p>An <code>x,y</code> printer using old CD-ROM drive mechanisms and an inkjet printer head. Inkjet printer heads have too fine a resolution for biological substrates. The Arduino Inkshield can serve better for biological material, but this design is limited to 2D printing.</p>
+                
+                <p>Lessons learned:
+
+                    <ul>
+                        <li>Would have been better to adapt the existing RAMPS (RepRap Arduino MEGA Pololu Shield) technology that has already been well developed for precisely this purpose by the 3D printing community. In particular, the Pololu stepper drivers already have microstepping capability built-in.</li>
+
+                        <li>Building your own XY stage for essentially free is great! But we are using these stepper motors for something they were never designed for, and it's starting to show. We are already getting some trouble with the bottom stage skipping occasionally, presumably because we've been resetting the sage by hand too often, which puts a lot of wear on the plastic bits that track the worm gear. It would be easy enough to buy some stepper motors brand-new, laser cut a frame to hold them, add some micro switches for end stops, and code a position reset function in software.</li>
+
+                        <li>Once you start sourcing brand new stepper motors, laser cutting a frame, and wiring up RAMPS electronics, why not just start with a 3D printer instead? If we get tired with our current BioPrinter version, that's probably the direction we'll go. Cost would likely go up by an order of magnitude or so though.</li>
+
+                        <li>Having a single print head has its own limitations. If we really wanted to do some sort of tissue engineering, we'd love to be able to print multiple cell types, and put some scaffolding material in between. We could potentially put two inkjet cartridges back-to-back. The solution the Big Boys in this field use is syringe pumps. Imagine having several syringe pumps sitting next to the printer, each feeding a different printing material via a thin tube to a needle mounted on the print head.</li>
+                    </ul>
+                </p>
+
+                <h5><a href="https://www.drdflo.com/food-printer-frame" target="_blank">Building a 3D Printer from a CNC machine</a></h5>
+
+                <p>These instructions are a part of Dr. D-Flo’s <a href="https://www.drdflo.com/foodprinter" target="_blank">3D Food Printer</a> series. The X-Controller native to the X-Carve is unable to interface with 3D printer softwares, and popular 3D printer controller boards, such as RAMPS 1.4 and Rambo, have stepper drivers that are unable to power the large motors of the X-Carve. Therefore, Dr. D-Flo has used RAMPs 1.4 with large "external" stepper drivers.</p>
+
+                <h5><a href="https://pinshape.com/blog/3-interesting-3d-printer-controller-boards/" target="_blank">3D Printer Controller Boards</a></h5>
+
+                <p>Controller boards are the brains of your 3D printer, powering everything from your motors to your hotend. The processing power of your controller board can play a large role in how detailed your prints come out, especially for non-cartesian machines like delta printers.</p>
+
+                <h5><a href="http://marlinfw.org" target="_blank">Open Source 3D Printer Firmware</a></h5>
+
+                <p>First created in 2011 for RepRap and Ultimaker, today Marlin drives most of the world's 3D printers. Reliable and precise, it delivers outstanding print quality while keeping you in full control of the process. As an open source project hosted on Github, Marlin is owned and maintained by the maker community.</p>
+
+                <p>Marlin is an open source firmware for the RepRap family of replicating rapid prototypers — popularly known as “3D printers.” It was derived from Sprinter and grbl, and became a standalone open source project on August 12, 2011 with its Github release. Marlin is licensed under the GPLv3 and is free for all applications.</p>
+
+                <p>From the start Marlin was built by and for RepRap enthusiasts to be a straightforward, reliable, and adaptable printer driver that “just works.” As a testament to its quality, Marlin is used by several respected commercial 3D printers. Ultimaker, Printrbot, AlephObjects (Lulzbot), and Prusa Research are just a few of the vendors who ship a variant of Marlin.</p>
+
+                <p>One key to Marlin’s popularity is that it runs on inexpensive 8-bit Atmel AVR micro-controllers. These chips are at the center of the popular open source Arduino/Genuino platform. The reference platform for Marlin is an Arduino Mega2560 with RAMPS 1.4.</p>
+
+                <h5><a href="https://goo.gl/nZE9Y8" target="_blank">3D Printer Controller Kit</a></h5>
+
+                <p>For Arduino Mega 2560 Uno R3 Starter Kits + RAMPS 1.4 with Upgraded Mosfet + 5pcs A4988 Stepper Motor Driver + LCD 12864 for Arduino Reprap (14 items):
+
+                    <ul>
+                        <li>3D Printer Controller Kit Mega 2560 R3</li>
+                        <li>3D Printer Controller RAMPS 1.4 interfaces an Arduino Mega2560 board. The modular design includes a plug in stepper drivers and extruder control electronics on an Arduino-compatible MEGA shield for easy service, part replacement, upgradeability and expansion</li>
+                        <li>LCD 12864 Graphic Smart Display Controller and the A4988 Stepper Motor Driver</li>
+                        <li>3D Printer Controller 100% compatible with Arduino RepRap</li>
+                    </ul>
+
+                    <b>Cost:</b> $39
+                </p>
+
+                <h5><a href="https://hackaday.io/project/1838/instructions" target="_blank">Open Syringe Pump</a></h5>
+
+                <figure>
+                    <img class="u-max-full-width" src="images/open-syringe-pump.jpg">
+                    <figcaption>open source syringe pump</figcaption>
+                </figure>
+
+                <p>A syringe pump pushes out small, accurate amounts of liquid.  The benefits of this design are that the extrusion rail mounting allows it to physically connect onto other projects or rack-mounts. The <a href="https://github.com/naroom/OpenSyringePump" target="_blank">Arduino code</a> based electronics give immense flexibility for specializing it towards your intended purpose. This syringe pump can be customized to fit into any project.</p>
+
+                <b>Cost:</b> €250
+
+                <h5><a href="http://www.instructables.com/id/3D-Printed-Syringe-Pump-Rack/" target="_blank">3D Printed Syringe Pump Rack</a></h5>
+
+                <figure>
+                    <img class="u-max-full-width" src="images/syringe-pump-rack.jpg">
+                    <figcaption>3D printed syringe pump rack</figcaption>
+                </figure>
+
+                <p>The rack is composed by 5 Syringe Pumps, with this set-up you can have 2 continuous flow systems and one remaining pump (if you have the proper tubing's and valves). It has 0.5ul resolution on a 5ml syringe.</p>
+
+                <b>Cost:</b> €300 for a bank of five syringes
+
+                <h5><a href="https://goo.gl/voCEhd" target="_blank">Tevo Tarantula</a></h5>
+
+                <figure>
+                    <img class="u-max-full-width" src="images/tevo-tarantula.jpg">
+                    <figcaption>Tevo Tarantula</figcaption>
+                </figure>
+
+                <p>
+                    <a href="https://www.youtube.com/watch?v=-84HitN0c2E" target="_blank">Two</a> <a href="https://www.youtube.com/watch?v=iW36HGhtPZA" target="_blank">reviews</a> of the Tevo Tarantula.
+                    
+                    <ul>
+                        <li>3D Printer Two Rolls Filament</li>
+                        <li>8 GB Card</li>
+                        <li>Max Paper Size:200*200*200mm</li>
+                        <li>Print Material:PLA, ABS,Flexible PLA, Hips,Wood,PVA, Nylon</li>
+                        <li>Control Mainboard: MKS Base</li>
+                    </ul>
+                </p>
+
+                <b>Cost:</b> 24,000 INR
+
+                <h5><a href="http://openbioprinting.org" target="_blank">Open Bioprinting</a></h5>
+
+                <p>Bioprinting is a technique employed in Tissue Engineering that uses 3D printing to build live structures. The aim of this technology is to build tissues and organs in order to regenerate a part of the body that has been damaged. In bioprinting, cells and the materials that forms the structure must be deposited simultaneously. When a scaffold is printed, and cells are seeded afterwards, we’ll speak about 3D printing applied into medicine or tissue engineering.</p>
+
+                <a href="https://github.com/OpenBioprinting/syringe_pump" target="_blank">STL files</a> of the open bioprinting syringe pump.
+
+                <h5><a href="https://richrap.blogspot.in/2012/04/universal-paste-extruder-ceramic-food.html" target="_blank">Universal Paste Extruder</a></h5>
+
+                <figure>
+                    <img class="u-max-full-width" src="images/universal-paste-extruder.jpg">
+                    <figcaption>Universal Paste Extruder</figcaption>
+                </figure>
+
+                <p>This is a universal paste extruder for RepRap and other 3D printers. It allows you to experiment with various pastes such as Ceramic, Food and Real Chocolate 3D Printing on your 3D printer without the need for any air compressor equipment or valves etc.</p>
+
+                <p>It simply uses the existing Extruder motor output from your printer’s electronics. It's designed to fit on the <a href="http://www.thingiverse.com/thing:19590" target="_blank">Quick-Fit X Carriage Thing 19590</a> and it will also fit on Prusa and Greg style X carriages.</p>
+
+                <h5><a href="https://www.fda.gov/MedicalDevices/ProductsandMedicalProcedures/GeneralHospitalDevicesandSupplies/InfusionPumps/ucm202495.htm" target="_blank">What Is an Infusion Pump?</a></h5>
+
+                <p>An external infusion pump is a medical device used to deliver fluids into a patient’s body in a controlled manner. There are many different types of infusion pumps, which are used for a variety of purposes and in a variety of environments.</p>
+                 
+                <p>Infusion pumps may be capable of delivering fluids in large or small amounts, and may be used to deliver nutrients or medications – such as insulin or other hormones, antibiotics, chemotherapy drugs, and pain relievers.</p>
+                
+                <p>Some infusion pumps are designed mainly for stationary use at a patient’s bedside. Others, called ambulatory infusion pumps, are designed to be portable or wearable.</p>
+                
+                <p>A number of commonly used infusion pumps are designed for specialized purposes. These include:</p>
+
+                <ul>
+                    <li>Enteral pump - A pump used to deliver liquid nutrients and medications to a patient’s digestive tract.</li>
+
+                    <li>Patient-controlled analgesia (PCA) pump - A pump used to deliver pain medication, which is equipped with a feature that allows patients to self-administer a controlled amount of medication, as needed.</li>
+
+                    <li>Insulin pump - A pump typically used to deliver insulin to patients with diabetes. Insulin pumps are frequently used in the home.</li>
+                </ul>
+                        
+                <p>Infusion pumps may be powered electrically or mechanically. Different pumps operate in different ways. For example:</p>
+
+                <ul>
+                    <li>In a syringe pump, fluid is held in the reservoir of a syringe, and a moveable piston controls fluid delivery.</li>
+
+                    <li>In an elastomeric pump, fluid is held in a stretchable balloon reservoir, and pressure from the elastic walls of the balloon drives fluid delivery.</li>
+
+                    <li>In a peristaltic pump, a set of rollers pinches down on a length of flexible tubing, pushing fluid forward.</li>
+
+                    <li>In a multi-channel pump, fluids can be delivered from multiple reservoirs at multiple rates.</li>
+
+                    <li>A "smart pump" is equipped with safety features, such as user-alerts that activate when there is a risk of an adverse drug interaction, or when the user sets the pump's parameters outside of specified safety limits.</li>
+                </ul>
+                        
+                </p>
+
+                <h5><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/" target="_blank">WSlicer software</a></h5>
+
+                <p>A 3D printing slicer prepares the selected model for your 3D printer, generating g-code, which is a widely used numerical control (NC) programming language.</p>
+
+                <table class="u-full-width">
+                        <thead>
+                            <tr>
+                                <th>Software</th>
+                                <th>Platform</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/#craftware" target="_blank">Craftware</a></th>
+                                <td>Windows, Mac</td>
+                            </tr>
+                            <tr>
+                                <th><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/#cura" target="_blank">Cura</a></th>
+                                <td>Windows, Mac, Linux</td>
+                            </tr>
+                            <tr>
+                                <th><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/#makerbot-print" target="_blank">MakerBot Print</a></th>
+                                <td>Windows, Mac</td>
+                            </tr>
+                            <tr>
+                                <th><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/#mattercontrol" target="_blank">MatterControl</a></th>
+                                <td>Windows, Mac, Linux</td>
+                            </tr>
+                            <tr>
+                                <th><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/#octoprint" target="_blank">OctoPrint</a></th>
+                                <td>Windows, Mac, Linux, Raspberry Pi</td>
+                            </tr>
+                            <tr>
+                                <th><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/#repetier" target="_blank">Repetier</a></th>
+                                <td>Windows, Mac, Linux</td>
+                            </tr>
+                            <tr>
+                                <th><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/#slic3r" target="_blank">Slic3r</a></th>
+                                <td>Windows, Mac, Linux</td>
+                            </tr>
+                            <tr>
+                                <th><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/#slicecrafter" target="_blank">SliceCrafter</a></th>
+                                <td>browser</td>
+                            </tr>
+                            <tr>
+                                <th><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/#tinkerine-suite" target="_blank">Tinkerine Suite</a></th>
+                                <td>Windows, Mac</td>
+                            </tr>
+                            <tr>
+                                <th><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/#z-suite" target="_blank">Z-Suite</a></th>
+                                <td>Windows, Mac</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const links = document.getElementsByClassName('n');
+        let i = 0;
+        let j = links.length;
+
+        for (; i < j; i++) {
+            links[i].addEventListener('click', function(event) {
+                event.preventDefault();
+                const anchor = this.hash.substr(1);
+                window.scrollTo(0, 0);
+                const rect = document
+                    .getElementById(anchor)
+                    .getBoundingClientRect();
+                
+                let top = 70;
+                if (rect.top >= top) {
+                    top = rect.top - top;
+                }
+
+                //console.log(`top of ${anchor}: ${top}`);
+                
+                window.scrollTo(0, top);
+                history.pushState('', '', '#' + anchor);
+            });
+        }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MycoPrinter: About</title>
+    <meta name="description" content="MycoPrinter, a bioprinter">
+    <meta name="author" content="Puneet Kishor">
+    <meta name="license" content="CC0 Public Domain Dedication">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/mycoprinter.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <nav class="top">
+        <div class="container">
+            <a href="index.html" style="text-decoration: none;"><b>MP</b></a>
+            <a class="n" href="#about">About</a>
+            <a class="n" href="#acknowledgements">Acknowledgements</a>
+            <a class="n" href="#license">License</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row" style="margin-top: 70px">
+            <div class="twelve columns">
+                <h4 id="about">About</h4>
+
+                <p>MycoPrinter is part of an art+science residency awarded to Darya Warner and Puneet Kishor by the Khoj International Artists Association, New Delhi.</p>
+
+                <h4 id="acknowledgements">Acknowledgements</h4>
+
+                <p>Darya would like thank:
+                    <ul>
+                        <li>The BioLab at the School of Visual Arts (SVA), New York University (NYU) for letting her use the lab for substrate experiments.</li>
+                    </ul>
+                </p>
+
+                <p>Puneet would like thank:
+                    <ul>
+                        <li>Yashas Shetty, Artist in Residence at <a href="http://artscienceblr.org" target="_blank">(Art)ScienceBLR</a> and the Srishti College of Art, Technology and Design for providing working space and accomodation during the research phase.</li>
+                    </ul>
+                </p>
+
+                <h4 id="license">License</h4>
+
+                <p class="row" xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">To the extent possible under law, <a rel="dct:publisher" href="http://www.daryawarner.com"><span property="dct:title">Darya Warner</span></a> and <a rel="dct:publisher" href="https://punkish.org"><span property="dct:title">Puneet Kishor</span></a> have waived all copyright and related or neighboring rights to <span property="dct:title"><b>MycoPrinter</b></span> via the <a rel="license" href="http://creativecommons.org/publicdomain/zero/1.0/">CC0 Public Domain Dedication</a>. This work is published from <span property="vcard:Country" datatype="dct:ISO3166" content="US" about="{{app.url}}">The United States</span>. Do what you want to with this material, but please give us acknowledge us in your work.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const links = document.getElementsByClassName('n');
+        let i = 0;
+        let j = links.length;
+
+        for (; i < j; i++) {
+            links[i].addEventListener('click', function(event) {
+                event.preventDefault();
+                const anchor = this.hash.substr(1);
+                window.scrollTo(0, 0);
+                const rect = document
+                    .getElementById(anchor)
+                    .getBoundingClientRect();
+                
+                let top = 70;
+                if (rect.top >= top) {
+                    top = rect.top - top;
+                }
+
+                //console.log(`top of ${anchor}: ${top}`);
+                
+                window.scrollTo(0, top);
+                history.pushState('', '', '#' + anchor);
+            });
+        }
+    
+    </script>
+</body>
+</html>

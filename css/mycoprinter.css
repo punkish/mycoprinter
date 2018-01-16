@@ -13,8 +13,18 @@ nav.top {
 nav a {
     padding-right: 10px;
 }
+#cc0 {
+    border: none;
+    margin-top: 7px;
+    margin-bottom: 0;
+    margin-right: 1rem;    
+}
+#citation {
+    font-size: 1.2rem;
+    border: 1px solid grey;
+    padding: 1rem;
+}
 cite {
-    font-size: 1rem;
     font-style: normal;
 }
 

@@ -7,10 +7,54 @@ nav.top {
     height: 40px;
     text-transform: uppercase;
     font-size: 1rem;
-    padding-left: 2rem;
     padding-top: 2rem;
     z-index: 10;
 }
 nav a {
     padding-right: 10px;
 }
+cite {
+    font-size: 1rem;
+    font-style: normal;
+}
+
+table {
+    width: 100%;
+    table-layout:fixed;
+    font-size: 0.7rem;
+}
+th, td {
+    vertical-align: top;
+    text-align: left;
+    padding: 5px;
+}
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+    table {
+        font-size: 1.2rem;
+        table-layout: auto;
+    }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}

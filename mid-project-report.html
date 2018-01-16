@@ -21,7 +21,7 @@
     <nav class="top">
         <div class="container">
             <a href="index.html" style="text-decoration: none;"><b>MP</b></a>
-            <a class="n" href="#introduction">Introduction</a>
+            <a class="n" href="#intro">Intro</a>
             <a class="n" href="#bioprinters">Bioprinters</a>
             <a class="n" href="#substrates">Substrates</a>
         </div>
@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row" style="margin-top: 70px">
             <div class="twelve columns">
-                <h4 id="introduction">Introduction</h4>
+                <h4 id="intro">Introduction</h4>
 
                 <p>The proposed printer, aka MycoPrinter, combines fused additive manufacturing (FDM) with plant biological tissue to create living organisms sculpted into artistic shapes. As such, it brings together engineering, biological sciences, and art together under the umbrella of open citizen science. The printer would allow printing relatively fine details that otherwise would be difficult to sculpt using regular mycelium growing techniques of mold making. Any artist wanting to work with mycelium should be able to use the MycoPrinter. In the following sections we discuss the preliminary research we have been doing on bioprinters and substrates.</p>
 
@@ -95,7 +95,7 @@
                             <th>Med grade agar</th>
                             <th>Tapioca</th>
                             <th>Coffee grounds</th>
-                            <th>Breadcrumbs</th>
+                            <th>Bread crumbs</th>
                             <th>Brown rice flour</th>
                             <th>Pine saw dust</th>
                             <th>Viscosity</th>
@@ -137,7 +137,7 @@
                             <td>10-20 days</td>
                         </tr>
                         <tr>
-                            <th>Breadcrumbs</th>
+                            <th>Bread crumbs</th>
                             <td>Very good 12/20/17</td>
                             <td></td>
                             <td></td>
@@ -371,7 +371,7 @@
                         
                 </p>
 
-                <h5><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/" target="_blank">WSlicer software</a></h5>
+                <h5><a href="https://all3dp.com/1/best-3d-slicer-software-3d-printer/" target="_blank">Slicer software</a></h5>
 
                 <p>A 3D printing slicer prepares the selected model for your 3D printer, generating g-code, which is a widely used numerical control (NC) programming language.</p>
 
@@ -430,32 +430,6 @@
         </div>
     </div>
 
-    <script>
-        const links = document.getElementsByClassName('n');
-        let i = 0;
-        let j = links.length;
-
-        for (; i < j; i++) {
-            links[i].addEventListener('click', function(event) {
-                event.preventDefault();
-                const anchor = this.hash.substr(1);
-                window.scrollTo(0, 0);
-                const rect = document
-                    .getElementById(anchor)
-                    .getBoundingClientRect();
-                
-                let top = 70;
-                if (rect.top >= top) {
-                    top = rect.top - top;
-                }
-
-                //console.log(`top of ${anchor}: ${top}`);
-                
-                window.scrollTo(0, top);
-                history.pushState('', '', '#' + anchor);
-            });
-        }
-    
-    </script>
+    <script src="js/mycoprinter.js"></script>
 </body>
 </html>

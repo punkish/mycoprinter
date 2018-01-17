@@ -13,6 +13,10 @@ nav.top {
 nav a {
     padding-right: 10px;
 }
+figure {
+    width: 100%;
+    margin-left: 0;
+}
 #cc0 {
     border: none;
     margin-top: 7px;

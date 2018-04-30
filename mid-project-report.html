@@ -19,8 +19,9 @@
 </head>
 <body>
     <nav class="top">
-        <div class="container">
-            <a href="index.html" style="text-decoration: none;"><b>MP</b></a>
+        <div class="container" id="mainMenu"></div>
+        <div class="container on" id="subMenu">
+            <b>Mid-Project Report</b>
             <a class="n" href="#intro">Intro</a>
             <a class="n" href="#bioprinters">Bioprinters</a>
             <a class="n" href="#substrates">Substrates</a>
@@ -28,7 +29,7 @@
     </nav>
 
     <div class="container">
-        <div class="row" style="margin-top: 70px">
+        <div class="row firstrow">
             <div class="twelve columns">
                 <h4 id="intro">Introduction</h4>
 
@@ -431,5 +432,10 @@
     </div>
 
     <script src="js/mycoprinter.js"></script>
+    <script>
+    window.onload = function() {
+        menuMaker();
+    };
+    </script>
 </body>
 </html>

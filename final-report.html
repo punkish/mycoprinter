@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MycoPrinter: Final Project Report</title>
+    <meta name="description" content="MycoPrinter, a bioprinter">
+    <meta name="author" content="Puneet Kishor">
+    <meta name="license" content="CC0 Public Domain Dedication">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/mycoprinter.css">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <nav class="top">
+        <div class="container" id="mainMenu"></div>
+        <div class="container on" id="subMenu">
+            <b>Final Project Report</b>
+            <a class="n" href="#intro">Intro</a>
+            <a class="n" href="#conclusions">Conclusions</a>
+            <a class="n" href="#next">Further Work</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row firstrow">
+            <div class="twelve columns">
+                <h4 id="intro">Introduction</h4>
+
+                <p>Continuing with the strategy we had pursued during the first four months of the residency, we experimented with different kinds of biological substrates while also focusing on the design and development of the printer itself.</p>
+
+                <p>We purchased a Tevo Tarantula 2017 model open source Prusa-clone 3D printer. Following the instructions, it took us about four days to put the printer together. There were a few problems with the instruction manual as well as with the printer design itself. Specifically, creating a stable printing platform proved problematic because of the single track design of the Tarantula. As a result, the distance between the end of the nozzle and the printing platform was not predictable.</p>
+
+                <p>After making a couple of test 3D prints, we replaced the print head with the syringe pump. Concurrently, we also modified the open source Marlin firmware with new values to control the extruder movment and print temperatures. We flashed the printer motherboard with the modified software and tested the syringe pump.</p>
+
+                <p>The biggest problems we encountered were related to the syringe pump. Because we wanted to do volumetric printing, the substrate had to be viscous enough to hold up when molded into a 3D object. However, as a result of the increased viscosity, a much higher level of pressure was needed to operate the syringe. The higher level of torque proved problematic for both the extruder motor (it was not powerful enough) as well as the syring pump structure that started buckling (it was not strong enough). Reinforcing the syringe pump structure by encasing it inside a strong woooden frame helped, but the problem of the weaker motor remained.</p>
+
+                <h4 id="openstudios">Open Studios</h4>
+
+                <figure>
+                    <img class="u-max-full-width" src="images/mycoprinter.jpg">
+                    <figcaption>MycoPrinter 1.0 (24” x 24” x 24”)</figcaption>
+                </figure>
+              
+                <p>MycoPrinter is an open source 3D bioprinter that prints mycelium substrate ready for inoculation with various types of fungi and combines additive manufacturing with plant biological tissue to mimic living organisms sculpted into artistic shapes. As such, it brings together engineering, biological sciences, and art together under the umbrella of open citizen science.</p>
+              
+                <figure>
+                    <img class="u-max-full-width" src="images/uncharted-territory.jpg">
+                    <figcaption>Uncharted Territory (8” x 16” print on archival paper)</figcaption>
+                </figure>
+              
+                <p>The image was created in collaboration  with Professor Kedar Khare and his team at the Department of Physics at IIT-Delhi using the the Digital Holographic Microscope (DHM) , a relatively inexpensive microscopy technology that can show images of cells in 3D. The Pleurotus ostearis (oyster mushroom) mycelium was incubated by Darya on a slide at KHOJ and then processed at Professor Khare’s laboratory using the DHM. The intricate landscape of mycelium takes the viewer  through the canyons and mountains  created by its thread like hyphae. Here, color is used to extrapolate height of the cells — the uncharted territory gets mapped giving us a three dimensional view of the microworld, and creating possibilities for future explorations.</p>
+                
+                <figure>
+                    <img class="u-max-full-width" src="images/seven-days.png">
+                    <figcaption>Seven Days (Ten petri dishes with Pleurotus ostearis, various substrates, portable microscope; 36” x 36” print on archival paper)</figcaption>
+                </figure>
+
+                <figure>
+                    <img class="u-max-full-width" src="images/petri-dishes.jpg">
+                    <figcaption>Seven Days (Ten petri dishes with Pleurotus ostearis, various substrates, portable microscope; 36” x 36” print on archival paper)</figcaption>
+                </figure>
+               
+                <p>Nine petri dishes with live mycelium are sealed, and the tenth is opened for the viewer to explore it with the portable microscope. We set up our small DIY lab at KHOJ, sterilizing the substrate in a pressure cooker, transferring the mycelium to petri dishes, and growing  it  in an incubator that we built on the spot. Inspired by local flavors, Darya created various substrates from spices, meals and food scraps along with some tradition media for cultivating the mycelium. Agar, rice flour, black and red pepper, turmeric, coconut fibers, cilantro and mint chutney, and coffee grounds were sterilized in the pressure cooker. For seven days Darya and Puneet observed the development of Pleurotus ostearis “seeds”.</p>
+              
+                <figure>
+                    <img class="u-max-full-width" src="images/untitled.png">
+                    <figcaption>Untitled (24”x 36” print  on archival paper)</figcaption>
+                </figure>
+     
+                <p>Another Collaboration with Professor Khare and his team using a focal stacking technique developed by them. A 10x magnification of the mycelium reveals a forest of hyphae, a surreal landscape illuminated by the artificial sun of compound microscope.</p>
+              
+                <figure>
+                    <img class="u-max-full-width" src="images/new-order.jpg">
+                    <figcaption>New order of ॐ 002, 003 (2” x 3” x 1”, Substrate of tapioca, rice flour, coffee inoculated with mycelium)</figcaption>
+                </figure>
+              
+                <p>The “Om” symbol (ॐ) is deconstructed through multiple printing attempts using the Mycoprinter.  The machine fails to print the “exact “ replica thus “creating” its own version of it, an abstracted one, which becomes the nurturing environment for new life. By using  the Om symbol, a  profound icon in Indian Dharmic religions,  Darya wanted to establish a link  to the cultural location and the Biophilia Hypothesis: “a love of life or living systems, that is based on a deep spiritual connection between humans and the Earth’s biota. Speculating further on the notion that all living things possess a soul, and  to bring  humanity  the lost love for nature back , we need to enclose ourselves as “sapiens” a part of the Earth, the Superorganism, to get down from the top of the pyramid and  step inside the circle. Since the MycoPrinter 1.0 is not yet calibrated properly, with each attempt it creates a slightly different version so the “clones” are not identical.  Through “New Order of ॐ,” Darya wants to stimulate  a dialog that  bridges the philosophical notion of anima, iconography  and future speculation on bioprinters creating humans.</p>
+
+                <h4 id="conclusions">Conclusions</h4>
+
+                <p>In spite of the operational problems that we experienced, we believe MycoPrinter<sup>1.0</sup> was successful because:</p>
+
+                <ul>
+                    <li>we were able to grow mycelium in non-lab environment with very low contamination</li>
+                    <li>we used local ingredients as substrates, and the Oyster fungi responded to them very positively</li>
+                    <li>we assembled the 3D printer successfully</li>
+                    <li>we demonstrated the ability of MycoPrinter<sup>1.0</sup> to print using a substrate made of tapioca, rice flower and agar</li>
+                </ul>
+
+                <p>Additionally, we collaborated with Professor Kedar Khare’s team at IIT-Delhi that has developed the Digital Holographic Microscope (DHM). We used the microscope take a closer look at the hyphae of the fungus (the mycelium thread-like structure) which resulted in beautiful 3D image of it and opened up possibilities for future collaborations.</p>
+
+                <p>The biggest lesson we learned was that <i>everything</i> in a bio-printer revolves around the substrate. The viscosity of the substrate determines the extruder mechanism, and the way the delivery of the substrate is implemented.</p>
+                    
+                <h4 id="next">Further Work</h4>
+
+                <p>The next stage is MycoPrinter<sup>2.0</sup> that will include</p>
+
+                <ul>
+                    <li>continuing research on viscosity of substrate</li>
+                    <li>redesigning the syringe pump</li>
+                    <li>developing a MycoPrinter Kit</li>
+                </ul>
+
+                <p>We also intend to continue developing and shaping sustainable art methodologies and implementing MycoPrinter as a starting point for DIY bioartists and artists, designers, scholars and schools, and the general public.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/mycoprinter.js"></script>
+    <script>
+    window.onload = function() {
+        menuMaker();
+    };
+    </script>
+</body>
+</html>

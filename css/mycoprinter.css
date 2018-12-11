@@ -61,6 +61,92 @@ th, td {
     position: relative;
     top: 120px !important;;
 }
+
+/* 
+ * carousel, based on
+ *
+ * https://codepo8.github.io/simple-carousel/carousel-images.html
+ */
+.carouselbox {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    margin: 0em;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 10px #ccc;
+    overflow: hidden;
+    padding-bottom: 75%;
+}
+.content {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.content figure {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: small;
+    z-index: 2;
+}
+.active figure {
+    position: absolute;
+    top: 2000px;
+}
+.active figure.current {
+    top: 35px;
+    
+}
+figure {
+    height: 100%;
+}
+figure img {
+    height: calc(100% - 70px);
+}
+.buttons {
+    display: none;
+    height: 25px !important;
+}
+.active .buttons {
+    display: block;
+    padding: 5px 0;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+.carouselbox button {
+    border: none;
+    visibility: hidden;
+}
+.active button {
+    visibility: visible;
+} 
+.offscreen {
+    position: absolute;
+    left: -2000px;
+}
+
+/* overide Skeleton styles */
+button {
+    height: 0 !important;
+    line-height: 0 !important;
+    white-space: nowrap;
+    border-radius: none !important;
+    border: none !important;
+    cursor: pointer; 
+    height: 0 !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0 !important;
+    white-space: auto !important;
+    background-color: auto !important;
+    box-sizing: border-box;
+}
+/* end carousel */
+
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /*

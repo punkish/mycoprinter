@@ -20,11 +20,12 @@
 *.tar
 *.zip
 
-# Logs and databases #
+# Logs, movies and databases #
 ######################
 *.log
 *.sql
 *.sqlite
+*.mov
 
 # OS generated files #
 ######################

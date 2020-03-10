@@ -104,9 +104,9 @@ th, td {
 figure {
     height: 100%;
 }
-figure img {
+/* figure img {
     height: calc(100% - 70px);
-}
+} */
 .buttons {
     display: none;
     height: 25px !important;
